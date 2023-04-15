@@ -7,7 +7,7 @@ Action when Easy-Shift button is active
   Back - Left Click
   Forward - Right Click
   Mute - Middle Click
-  Scroll - Volumn adjustment
+  Volumn adjustment - Scroll
 */
 
 /*
