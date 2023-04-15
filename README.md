@@ -5,6 +5,10 @@ AutoHotKey script to simulate Roccat Easy Shift feature
 
 Simulate Roccat Easy-Shift feature with AutoHotKey, code did not go through detail testing, use it at your own risk.
 
+# Requirement
+
+https://www.autohotkey.com/
+
 # Usage
 
 <code>LAlt</code>+<code>LCtrl</code>+<code>LShift</code>+<code>Escape</code> to toggle AutoHotKey Suspend
