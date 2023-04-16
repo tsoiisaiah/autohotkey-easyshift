@@ -57,7 +57,7 @@ RButton Up::
     if layerShift
         Send "{XButton2}"
     else
-        Send "{RButton}"
+        Send "{RButton Up}"
 }
 
 MButton::
