@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2.0
+#Requires AutoHotkey v2.0
 ; https://www.autohotkey.com/docs/v2/Hotkeys.htm
 /*
 Simulate teh Roccat Easy-Shift feature
@@ -10,84 +10,34 @@ Action when Easy-Shift button is active
   Volumn adjustment - Scroll
 */
 
-/*
-LayerShift setup
-*/
-global layerShift := false
-
-XButton1::
+XButton1 & LButton Up::
 {
-    global layerShift := true
+    Send "{XButton1}"
     return
 }
 
-XButton1 Up::
+XButton1 & RButton Up::
 {
-    global layerShift := false
+    Send "{XButton2}"
     return
 }
 
-/*
-Override buttons
-*/
-
-; Ignore input if layer shift is enabled
-LButton::
+XButton1 & MButton Up::
 {
-    if !layerShift
-        Send "{LButton Down}"
+    Send "{Volume_Mute}"
+    return
 }
 
-LButton Up::
+XButton1 & WheelUp::
 {
-    if layerShift
-        Send "{XButton1}"
-    else
-        Send "{LButton Up}"
+    Send "{Volume_Up}"
+    return
 }
 
-RButton::
+XButton1 & WheelDown::
 {
-    if !layerShift
-        Send "{RButton Down}"
-}
-
-RButton Up::
-{
-    if layerShift
-        Send "{XButton2}"
-    else
-        Send "{RButton Up}"
-}
-
-MButton::
-{
-    if layerShift
-        Send "{Volume_Mute}"
-    else
-        Send "{MButton Down}"
-}
-
-MButton Up::
-{
-    if !layerShift
-        Send "{MButton Up}"
-}
-
-WheelUp::
-{
-    if layerShift
-        Send "{Volume_Up}"
-    else
-        Send "{WheelUp}"
-}
-
-WheelDown::
-{
-    if layerShift
-        Send "{Volume_Down}"
-    else
-        Send "{WheelDown}"
+    Send "{Volume_Down}"
+    return
 }
 
 /*
@@ -96,3 +46,9 @@ Hotkey for stopping the script, LAlt+LCtrl+LShift+Esc
 #SuspendExempt
 <!<^<+Escape::Suspend   ;   LAlt+LCtrl+LShift+Esc
 #SuspendExempt False
+
+/*
+WriteLog(text) {
+    FileAppend(A_NowUTC ": " text "`n", "logfile.txt")
+}
+*/
