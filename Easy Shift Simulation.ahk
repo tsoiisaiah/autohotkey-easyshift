@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0
 ; https://www.autohotkey.com/docs/v2/Hotkeys.htm
 /*
-Simulate teh Roccat Easy-Shift feature
+Simulate the Roccat Easy-Shift feature
 Easy-Shift button: Button 4 (Usually the back button)
 Action when Easy-Shift button is active
   Back - Left Click
@@ -10,20 +10,34 @@ Action when Easy-Shift button is active
   Volumn adjustment - Scroll
 */
 
-XButton1 & LButton Up::
+#InputLevel 10
+
+$XButton1::
 {
-    Send "{XButton1}"
     return
 }
 
-XButton1 & RButton Up::
+XButton1 & LButton::
 {
-    Send "{XButton2}"
+    Send "{XButton1 down}"
+    Sleep 20
+    Send "{XButton1 up}"
+    Sleep 20
     return
 }
 
-XButton1 & MButton Up::
+XButton1 & RButton::
 {
+    Send "{XButton2 down}"
+    Sleep 20
+    Send "{XButton2 up}"
+    Sleep 20
+    return
+}
+
+XButton1 & MButton::
+{
+    KeyWait "MButton"
     Send "{Volume_Mute}"
     return
 }
